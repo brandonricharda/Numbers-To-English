@@ -57,7 +57,11 @@ def englishNumber number
           numberIntoWords += i + " hundred" + " "
         end
       else
-        numberIntoWords += i + " " + identifyPhrase(remaining) + " "
+        if numberOfNumbers < 5 or numberOfNumbers > 5
+          numberIntoWords += i + " " + identifyPhrase(remaining) + " "
+        elsif numberOfNumbers == 5
+          numberIntoWords += identifyPhrase(remaining) + " "
+        end
       end
     elsif remaining == 2 and i != "zero"
       numberIntoWords += tens[i] + " "
@@ -69,4 +73,4 @@ def englishNumber number
   puts numberIntoWords
 end
 
-englishNumber(13000)
+englishNumber(1300000)
