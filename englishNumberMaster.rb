@@ -64,12 +64,15 @@ def englishNumber number
             numberIntoWords += identifyPhrase(remaining) + " "
           end
         else
-          puts "This ran"
           numberIntoWords += i + " " + identifyPhrase(remaining) + " "
         end
       end
     elsif remaining == 2 and i != "zero"
-      numberIntoWords += teenagers[i + " " + numberWords[index + 1]] + " "
+      if i == "one"
+        numberIntoWords += teenagers[i + " " + numberWords[index + 1]] + " "
+      else
+        numberIntoWords += tens[i] + " "
+      end
     elsif remaining == 1
       arrayToAnalyze = numberIntoWords.split(" ")
       if !teenagers.key(arrayToAnalyze.last) and i != "zero"
@@ -80,4 +83,4 @@ def englishNumber number
   puts numberIntoWords
 end
 
-englishNumber(165)
+englishNumber(13000)
