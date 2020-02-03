@@ -43,7 +43,7 @@ def englishNumber number
   numberOfNumbers = numberWords.count
   numberWords.each_with_index do |i, index|
     remaining = numberOfNumbers - index
-    if remaining != 2 and i != "zero" and remaining != 1
+    if remaining > 2 and i != "zero"
       if remaining == 5
         if numberWords[index + 1] == "zero"
           numberIntoWords += tens[i] + " " + identifyPhrase(remaining) + " "
@@ -57,14 +57,15 @@ def englishNumber number
           numberIntoWords += i + " hundred" + " "
         end
       else
-        if numberOfNumbers != 5
-          numberIntoWords += i + " " + identifyPhrase(remaining) + " "
-        elsif numberOfNumbers == 5
+        if numberOfNumbers == 5
           if i != "zero"
             numberIntoWords += + i + " " + identifyPhrase(remaining) + " "
           else
             numberIntoWords += identifyPhrase(remaining) + " "
           end
+        else
+          puts "This ran"
+          numberIntoWords += i + " " + identifyPhrase(remaining) + " "
         end
       end
     elsif remaining == 2 and i != "zero"
@@ -79,4 +80,4 @@ def englishNumber number
   puts numberIntoWords
 end
 
-englishNumber(15000)
+englishNumber(165)
