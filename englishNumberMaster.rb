@@ -43,7 +43,7 @@ def englishNumber number
   numberOfNumbers = numberWords.count
   numberWords.each_with_index do |i, index|
     remaining = numberOfNumbers - index
-    if remaining != 2 and i != "zero"
+    if remaining != 2 and i != "zero" and remaining != 1
       if remaining == 5
         if numberWords[index + 1] == "zero"
           numberIntoWords += tens[i] + " " + identifyPhrase(remaining) + " "
@@ -60,17 +60,23 @@ def englishNumber number
         if numberOfNumbers < 5 or numberOfNumbers > 5
           numberIntoWords += i + " " + identifyPhrase(remaining) + " "
         elsif numberOfNumbers == 5
-          numberIntoWords += identifyPhrase(remaining) + " "
+          if i != "zero"
+            numberIntoWords += + i + " " + identifyPhrase(remaining) + " "
+          else
+            numberIntoWords += identifyPhrase(remaining) + " "
+          end
         end
       end
     elsif remaining == 2 and i != "zero"
-      numberIntoWords += tens[i] + " "
+      numberIntoWords += teenagers[i + " " + numberWords[index + 1]] + " "
     elsif remaining == 1
-      if numberIntoWords.split(" ").last != "eleven"
+      arrayToAnalyze = numberIntoWords.split(" ")
+      if !teenagers.key(arrayToAnalyze.last) and i != "zero"
+        numberIntoWords += i
       end
     end
   end
   puts numberIntoWords
 end
 
-englishNumber(1300000)
+englishNumber(1001)
