@@ -58,7 +58,8 @@ def englishNumber number
         end
       else
         if numberOfNumbers == 5
-          if i != "zero"
+          arrayToAnalyze = numberIntoWords.split(" ")
+          if !teenagers.key(arrayToAnalyze.last) and i != "zero"
             numberIntoWords += + i + " " + identifyPhrase(remaining) + " "
           else
             numberIntoWords += identifyPhrase(remaining) + " "
@@ -83,4 +84,4 @@ def englishNumber number
   puts numberIntoWords
 end
 
-englishNumber(13000)
+englishNumber(13333)
