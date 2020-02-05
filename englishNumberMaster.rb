@@ -12,9 +12,10 @@ def englishRefactorNew number
     elsif i != "0"
       next_item = number_array_with_commas[index + 1]
       second_item_away = number_array_with_commas[index + 2]
-      if next_item != nil and next_item != "," and second_item_away != ","
+      last_item_alert = next_item == nil ? "active" : "inactive"
+      if last_item_alert == "inactive" and next_item != "," and second_item_away != ","
         number_array_with_commas[index] += " " + phrase["HUND"]
-      elsif next_item != nil and next_item != "," and second_item_away == ","
+      elsif last_item_alert == "inactive" and next_item != "," and second_item_away == ","
         number_array_with_commas[index] = tens[i.to_i] != nil ? tens[i.to_i] : i
       end
     end
