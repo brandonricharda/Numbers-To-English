@@ -20,8 +20,10 @@ def englishRefactorNew number
       if triple_digit == "active"
         number_array_with_commas[index] += " " + phrase["HUND"]
       elsif double_digit == "active"
-        if tens[i] != nil
-          number_array_with_commas[index] += tens[i]
+        if tens[i] != nil then number_array_with_commas[index] = tens[i] end
+        if teens[i + next_item] != nil
+          number_array_with_commas[index] = teens[i + next_item] 
+          number_array_with_commas.delete_at(index + 1)
         end
       end
     end
