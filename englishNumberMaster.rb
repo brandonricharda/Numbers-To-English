@@ -18,17 +18,19 @@ def englishRefactorNew number
       comma_count = comma_count - 1
     elsif i != "0"
       if triple_digit == "active"
-        number_array_with_commas[index] += " " + phrase["HUND"]
+        number_array_with_commas[index] = ones[i] + " " + phrase["HUND"]
       elsif double_digit == "active"
         if tens[i] != nil then number_array_with_commas[index] = tens[i] end
         if teens[i + next_item] != nil
           number_array_with_commas[index] = teens[i + next_item] 
           number_array_with_commas.delete_at(index + 1)
         end
+      elsif single_digit == "active"
+        number_array_with_commas[index] = ones[i]
       end
     end
   end
   puts number_array_with_commas
 end
 
-englishRefactorNew(13564876)
+englishRefactorNew(871571)
