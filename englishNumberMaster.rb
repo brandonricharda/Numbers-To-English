@@ -30,14 +30,10 @@ def englishNumber number
             number_array_with_commas[index] = teens[i + next_item] 
             number_array_with_commas.delete_at(index + 1)
           end
-        elsif single_digit == "active"
-          number_array_with_commas[index] = ones[i]
-        end
+        elsif single_digit == "active" then number_array_with_commas[index] = ones[i] end
       end
     end
-    number_array_with_commas.each do |i|
-      final_result += i + " "
-    end
+    number_array_with_commas.each do |i| final_result += i + " " end
     puts final_result
   end
 end
