@@ -1,6 +1,6 @@
 def englishNumber number 
-  if number.length > 13 or number[0] == "0" or number.count("a-zA-Z") > 0
-    puts "Please enter a valid number that is no greater than 13 digits."
+  if number.length > 13 or number[0] == "0" or number.count("a-zA-Z") > 0 or number.include? "."
+    puts "Please enter a valid number that is no greater than 13 digits and doesn't have decimals."
     englishNumber(gets.chomp)
   else
     phrase = {"1" => "thousand", "2" => "million", "3" => "billion", "4" => "trillion", "HUND" => "hundred"}
